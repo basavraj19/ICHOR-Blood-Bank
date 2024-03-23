@@ -1,3 +1,5 @@
 module.exports ={
-    UserService: require('./userService')
+    UserService: require('./userService'),
+    AdminService : require('./adminServices'),
+    DonarService : require('./donarServices')
 }

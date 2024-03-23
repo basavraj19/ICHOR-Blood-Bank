@@ -9,24 +9,16 @@ function validdateCreateUserRequest(req, res, next) {
         Errorrespones.error = new AppError('UserName Missing.', StatusCodes.BAD_REQUEST);
         return res.status(StatusCodes.BAD_REQUEST).json(Errorrespones);
     } 
-    else if (!req.body.name) {
-        Errorrespones.error = new AppError('Name Missing.', StatusCodes.BAD_REQUEST);
+    else if (!req.body.firstName) {
+        Errorrespones.error = new AppError('First Name Missing.', StatusCodes.BAD_REQUEST);
         return res.status(StatusCodes.BAD_REQUEST).json(Errorrespones);
     } 
     else if (!req.body.password) {
         Errorrespones.error = new AppError('Password Missing.', StatusCodes.BAD_REQUEST);
         return res.status(StatusCodes.BAD_REQUEST).json(Errorrespones);
     } 
-    else if (!req.body.age) {
-        Errorrespones.error = new AppError('Age Missing.', StatusCodes.BAD_REQUEST);
-        return res.status(StatusCodes.BAD_REQUEST).json(Errorrespones);
-    } 
-    else if (!req.body.contactNo) {
-        Errorrespones.error = new AppError('Contact Number Missing.', StatusCodes.BAD_REQUEST);
-        return res.status(StatusCodes.BAD_REQUEST).json(Errorrespones);
-    } 
-    else if (!req.body.bloodGroup) {
-        Errorrespones.error = new AppError('Blood Group Missing.', StatusCodes.BAD_REQUEST);
+    else if (!req.body.lastName) {
+        Errorrespones.error = new AppError('Last Name Missing.', StatusCodes.BAD_REQUEST);
         return res.status(StatusCodes.BAD_REQUEST).json(Errorrespones);
     } 
     else {

@@ -1,3 +1,5 @@
 module.exports ={
-    UserController: require('./userController')
+    UserController: require('./userController'),
+    AdminController : require('./adminController'),
+    DonarController : require('./donarController')
 }

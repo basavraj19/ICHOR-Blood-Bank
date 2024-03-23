@@ -16,9 +16,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
-    name: {
-      type : DataTypes.STRING,
-      allowNull :false
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull : false
+    },
+    lastName:{
+      type: DataTypes.STRING,
+      allowNull : false
     },
     userName: {
       type : DataTypes.STRING,
@@ -27,22 +31,6 @@ module.exports = (sequelize, DataTypes) => {
         isEmail : true
       },
       unique : true
-    },
-    contactNo: {
-      type : DataTypes.INTEGER,
-      allowNull : false
-    },
-    age: {
-      type: DataTypes.INTEGER,
-      allowNull :false
-    },
-    bloodGroup: {
-     type: DataTypes.ENUM,
-     values : [ APostitive, ANegative, BPostitive, BNegative, ABNegative, ABPostitive, OPostitive, ONegative],
-     allowNull :false
-    },
-    address: {
-      type : DataTypes.STRING,
     },
     password: {
      type: DataTypes.STRING,
