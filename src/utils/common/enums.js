@@ -9,6 +9,14 @@ const bloodGroups ={
     ABNegative : 'AB-'
 }
 
+const status ={
+    Initiated : 'Initiated',
+    Pending : 'Pending',
+    Fullfilled : 'Fullfilled',
+    Cancelled : 'cancelled'
+}
+
 module.exports = {
-    BloodGroups : bloodGroups
+    BloodGroups : bloodGroups,
+    Status : status
 }
