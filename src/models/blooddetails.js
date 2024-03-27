@@ -4,11 +4,12 @@ const {
 } = require('sequelize');
 
 const { Enum } = require('../utils/common');
-const { Initiated, Pending, Fullfilled, Cancelled } = Enum.Status;
+const { wholeBlood, PRBCs } = Enum.BloodType;
+const { Processed, UnProcessed } =Enum.ProcessingStatus;
 const { APostitive, ANegative, BPostitive, BNegative, ABNegative, ABPostitive, OPostitive, ONegative } = Enum.BloodGroups;
 
 module.exports = (sequelize, DataTypes) => {
-  class Ticket extends Model {
+  class BloodDetails extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -16,27 +17,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.Donar,{
+         foreignKey : 'DonarId'
+      });
     }
   }
-  Ticket.init({
-    firstName: {
-      type: DataTypes.STRING,
-      allowNull: false
+  BloodDetails.init({
+    DonarId : {
+      type : DataTypes.INTEGER,
+      allowNull : false
     },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    age: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    gender: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    contactNumber: {
-      type: DataTypes.STRING,
+    bloodType: {
+      type: DataTypes.ENUM,
+      values: [ wholeBlood, PRBCs ],
       allowNull: false
     },
     bloodGroup: {
@@ -44,19 +37,26 @@ module.exports = (sequelize, DataTypes) => {
       values: [APostitive, ANegative, BPostitive, BNegative, ABNegative, ABPostitive, OPostitive, ONegative],
       allowNull: false
     },
-    quantity: {
-      type: DataTypes.INTEGER,
+    bloodweight : {
+      type : DataTypes.INTEGER,
+      allowNull : false
+    },
+    collectionDate: {
+      type : DataTypes.DATE,
       allowNull: false
     },
-    TicketStatus: {
-      type: DataTypes.ENUM,
-      values: [Initiated, Pending, Fullfilled, Cancelled],
-      defaultValue: Pending,
+    expiryDate : {
+      type : DataTypes.DATE,
       allowNull: false
+    },
+    processingStatus: {
+      type: DataTypes.ENUM,
+      values : [ Processed, UnProcessed ],
+      allowNull : false
     }
   }, {
     sequelize,
-    modelName: 'Ticket',
+    modelName: 'BloodDetails',
   });
-  return Ticket;
+  return BloodDetails;
 };

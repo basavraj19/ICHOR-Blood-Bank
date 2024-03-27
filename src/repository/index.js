@@ -3,5 +3,6 @@ module.exports ={
     UserRepository : require('./userRepository'),
     AdminRepository : require('./adminRepository'),
     DonarRepository : require('./donarRepository'),
-    TicketRepository : require('./ticketRepository')
+    TicketRepository : require('./ticketRepository'),
+    BloodDetailsRepository : require('./bloodDetailRepository')
 }

@@ -16,7 +16,18 @@ const status ={
     Cancelled : 'cancelled'
 }
 
+const bloodType = {
+    wholeBlood : 'Whole Blood',
+    PRBCs : 'PRBCs'
+}
+
+const processingStatus ={
+    Processed : 'processed',
+    UnProcessed : 'unprocessed'
+}
 module.exports = {
     BloodGroups : bloodGroups,
-    Status : status
+    Status : status,
+    BloodType : bloodType,
+    ProcessingStatus : processingStatus
 }

@@ -3,6 +3,7 @@
 
 const { Enum } =require('../utils/common');
 const  { APostitive, ANegative, BPostitive, BNegative, ABNegative, ABPostitive, OPostitive, ONegative } = Enum.BloodGroups;
+const { wholeBlood, PRBCs } = Enum.BloodType;
 
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -31,9 +32,18 @@ module.exports = {
         values : [ APostitive, ANegative, BPostitive, BNegative, ABNegative, ABPostitive, OPostitive, ONegative],
         allowNull : false,
       },
+      bloodType: {
+        type: Sequelize.ENUM,
+        values: [wholeBlood, PRBCs],
+        allowNull: false
+      },
       dateOfBirth: {
         type: Sequelize.DATE,
         allowNull : false,
+      },
+      weight : {
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       gender: {
         type: Sequelize.STRING,

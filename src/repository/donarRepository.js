@@ -18,6 +18,10 @@ class DonarRepository extends CrudRepository{
         }
         return respones;
     }
+
+    async getBloodDetailByBloodGroup(bloodGroup){
+
+    }
 }
 
 module.exports = DonarRepository;

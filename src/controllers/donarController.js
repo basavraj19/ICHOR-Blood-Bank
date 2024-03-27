@@ -12,7 +12,9 @@ async function newDonar(req, res) {
             dateOfBirth: req.body.dateOfBirth,
             contactNumber: req.body.contactNumber,
             bloodGroup: req.body.bloodGroup,
-            gender: req.body.gender
+            bloodType : req.body.bloodType,
+            gender: req.body.gender,
+            weight : req.body.weight
         });
         Successresponse.data = response;
         res.status(StatusCodes.CREATED).json(Successresponse);
